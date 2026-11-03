@@ -1,7 +1,6 @@
 
-name: Node.js CI Pipeline
+name: GitHub Actions Workflow
 
-# Automatically run when code is pushed
 on:
   push:
     branches:
@@ -12,21 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
+      - name: Display Success Message
+        run: echo "GitHub Actions workflow executed successfully!"
 
-      # Step 3: Install dependencies
-      - name: Install Dependencies
-        run: npm install
+      - name: Display Repository Files
+        run: ls -la
 
-      # Step 4: Run tests
-      - name: Run Tests
-        run: npm test
+      - name: Display Completion Message
+        run: echo "Build completed successfully!"
 
